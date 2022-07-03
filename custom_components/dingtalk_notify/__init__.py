@@ -1,0 +1,1 @@
+"""The dingtalk notify component."""
