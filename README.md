@@ -60,7 +60,7 @@ data:
 
 service: notify.dingtalk
 data:
-  message: 发送带标题和内容的链接卡片
+  message: 发送带内容的链接卡片
   title: 这是标题
   data:
     type: sampleActionCard
@@ -69,7 +69,7 @@ data:
    
 service: notify.dingtalk
 data:
-  message: 发送带标题和markdown内容的链接卡片
+  message: "#### 杭州天气 @150XXXXXXXX \n > 9度，西北风1级，空气良89，相对温度73%\n > ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)\n > ###### 10点20分发布 [天气](https://www.dingtalk.com) \n"
   title: 这是标题
   data:
     type: sampleMarkdown   
@@ -79,6 +79,7 @@ data:
   message: 发送图片
   title: 这是标题
   data:
+    type: sampleImageMsg
     picurl: 'https://bbs.hassbian.com/static/image/common/logo.png'
 
 
