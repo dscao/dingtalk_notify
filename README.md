@@ -93,3 +93,30 @@ data:
     imagepath: /config/www/1.jpg
 
 ```
+
+## 示例：
+
+```yaml
+service: notify.dingtalk
+data:
+  title: 小汽车当前位置：{{states('sensor.mycar_loc')}}
+  message: >-
+    小汽车当前位置：{{states('sensor.mycar_loc')}} {{"\n\n"}}
+    状态刷新时间：{{"\n\n"}}{{state_attr('device_tracker.gddr_gooddriver',
+    'querytime')}} {{"\n\n"}}
+    车辆状态：{{state_attr('device_tracker.gddr_gooddriver', 'status')}} {{"\n\n"}}
+    到达位置时间：{{"\n\n"}}{{state_attr('device_tracker.gddr_gooddriver',
+    'updatetime')}}
+    {{"\n\n"}}停车时长：{{state_attr('device_tracker.gddr_gooddriver',
+    'parking_time')}}{{"\n\n"}}当前速度：{{state_attr('device_tracker.gddr_gooddriver',
+    'speed') |round(1)
+    }}km/h{{"\n\n"}}[查看地图](https://uri.amap.com/marker?position={{state_attr('device_tracker.gddr_gooddriver',
+    'longitude')+0.00555}},{{state_attr('device_tracker.gddr_gooddriver',
+    'latitude')-0.00240}})![https://restapi.amap.com/v3/staticmap?zoom=14&size=1024*512&markers=large,,A:{{state_attr('device_tracker.gddr_gooddriver',
+    'longitude')+0.00555}},{{state_attr('device_tracker.gddr_gooddriver',
+    'latitude')-0.00240}}&key=819cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx](https://restapi.amap.com/v3/staticmap?zoom=14&size=1024*512&markers=large,,A:{{state_attr('device_tracker.gddr_gooddriver',
+    'longitude')+0.00555}},{{state_attr('device_tracker.gddr_gooddriver',
+    'latitude')-0.00240}}&key=819cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+  data:
+    type: sampleMarkdown
+```
