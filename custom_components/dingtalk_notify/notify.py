@@ -104,7 +104,10 @@ class DingtalkNotificationService(BaseNotificationService):
         videopath = data.get("videopath")
         imagepath = data.get("imagepath")
         safe = data.get("safe") or 0
-        touser = kwargs.get(ATTR_TARGET) or [self._touser]
+        touser = kwargs.get(ATTR_TARGET) or self._touser
+        if not isinstance(touser, list):
+            touser = touser.split("|")
+
 
         if msgtype == "sampleText":
             content = ""
